@@ -1,1 +1,7 @@
-sdv
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Ping all the system
+      ping:
