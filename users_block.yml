@@ -5,4 +5,12 @@
     become_method: sudo
     tasks:
       - name: Disable user account
-        command: "lastlog -b 90 | awk '!/Never log/ {if (NR > 1) print $1}' |  xargs -I{} usermod -L {}"
+        command: "lastlog -b 90"
+      - name: 1
+        command: "tail -n+2"
+      - name: 2
+        command: "grep -v 'Never log'"
+      - name: 3
+        command: "awk '{print $1}'"
+      - name: 4
+        command: "xargs -I{} usermod -L {}"
