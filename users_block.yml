@@ -1,0 +1,9 @@
+---
+  - name: Desable accounts 
+    hosts: all
+    become: yes
+    become_method: sudo
+    tasks:
+      - name: Disable user account
+        command: "lastlog -b 90 | tail -n+2 | grep -v 'Never log' | awk '{print $1}' |
+  tee -a ~/usermod-L.log | xargs -I{} usermod -L {}"
