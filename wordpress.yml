@@ -11,7 +11,7 @@
           dest: /tmp
       - name: unzip the file
         unarchive:
-          src: /tmp/wordpress*
+          src: /tmp/latest.tar.gz*
           #format: gzip
           dest: /tmp/
           remote_src: True
